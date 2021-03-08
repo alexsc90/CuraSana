@@ -7,13 +7,11 @@ import {
 import Signup from './components/auth/Signup'
 import Login from './components/auth/Login'
 import Home from './components/Home';
-import AlertaState from './context/alertas/AlertaState';
 import AuthState from './context/autenticacion/AuthState';
 
 function App() {
   return (
     <>
-    <AlertaState>
       <AuthState>
         <Router>
           <Switch>
@@ -24,7 +22,6 @@ function App() {
           </Switch>
         </Router>
       </AuthState>
-    </AlertaState>
     </>
   );
 }

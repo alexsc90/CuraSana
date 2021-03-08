@@ -7,13 +7,13 @@ export default function Home() {
 
     useEffect(() => {
         const getProducts = async () => {
-            const info = await axios.get('http://localhost:3001/productos')
-            console.log(info)
-            setProducts(info.data)
+            const info = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/productos`)
+            setProducts(info.data.products)
         }
         getProducts()
     }, [])
 
+    console.log(products)
     return (
         <div>
         {
@@ -26,7 +26,6 @@ export default function Home() {
                 </>
             )
         })}
-            
         </div>
     )
 }
