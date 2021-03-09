@@ -1,11 +1,19 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import axios from 'axios'
 
+import AuthContext from '../../context/autenticacion/AuthContext'
+
 export default function Login() {
+
+    const ctxAuth = useContext(AuthContext)
+    const {userLogin} = ctxAuth
+
+
     const [login, setLogin] = useState({
         email: "",
         password: ""
     })
+
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -15,18 +23,13 @@ export default function Login() {
         })
     }
 
-    const sendLogin = async () => {
-        const postLogin = await axios.post('http://localhost:3001/login', login)
-        setLogin({
-            ...login,
-            email: "",
-            password: ""
-        })
+    const sendLogin = () => {
+       userLogin(login)
     }
 
     return (
         <div>
-            <form onSubmit= {() => sendLogin()}>
+            <form onSubmit= {sendLogin}>
                 
                 Email:
                 <input type="email" name="email" placeholder="nombre@email.com" onChange={(e)=> handleChange(e)}/>

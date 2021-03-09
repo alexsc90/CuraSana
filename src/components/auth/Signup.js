@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useState, useContext } from 'react'
+import {Link} from 'react-router-dom'
+
+import AuthContext from '../../context/autenticacion/AuthContext'
 
 export default function Signup() {
+    const ctxAuth = useContext(AuthContext)
+    const {userRegister} = ctxAuth
 
     const [infoSignup, setInfoSignup] = useState({
         name:"",
@@ -16,25 +20,16 @@ export default function Signup() {
             ...infoSignup,
             [e.target.name]: e.target.value
         })
-        console.log(infoSignup)
         
     }
 
-    const sendNewUser= async() => {
-        console.log(infoSignup)
-        const uploadUser= await axios.post("http://localhost:3001/signup", infoSignup)
-        setInfoSignup({
-            ...infoSignup,
-            name:"",
-            email:"",
-            password:"",
-            phoneNumber: 0, 
-        })
+    const sendNewUser= () => {
+        userRegister(infoSignup)
     }
 
     return (
         <div>
-            <form onSubmit= {() => sendNewUser()}>
+            <form onSubmit= {sendNewUser}>
                 Nombre:
                 <input type="text" name="name" placeholder="tu Nombre" onChange={(e)=> handleChange(e)}/>
         
