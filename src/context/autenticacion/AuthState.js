@@ -11,7 +11,8 @@ import {
     OBTENER_USUARIO,
     LOGIN_EXITOSO,
     LOGIN_ERROR,
-    CERRAR_SESION
+    CERRAR_SESION,
+    ACTUALIZAR_USUARIO
 } from '../../types'
 
 
@@ -29,6 +30,7 @@ const AuthState = props => {
     
     // Registra un usuario
     const registrarUsuario = async datos => {
+        console.log('Hola')
         try{
             const respuesta = await clienteAxios.post('/api/signup', datos)
             dispatch({
@@ -85,7 +87,7 @@ const AuthState = props => {
             
             dispatch({
                 type: LOGIN_EXITOSO,
-                payload: respuesta.data
+                payload: respuesta.data.profile
             })
 
             usuarioAutenticado()
@@ -103,10 +105,20 @@ const AuthState = props => {
         }
     }
 
+
     // Cierra la sesión del usuario
     const cerrarSesion = () => {
         dispatch({
             type: CERRAR_SESION
+        })
+    }
+
+    const actualizarUsuario = async datos => {
+        const respuesta = await clienteAxios.put('/api/perfil/:id', datos)
+        
+        dispatch({
+            type: ACTUALIZAR_USUARIO,
+            payload: respuesta.data.profile
         })
     }
 
@@ -120,7 +132,8 @@ const AuthState = props => {
             registrarUsuario,
             iniciarSesion,
             usuarioAutenticado,
-            cerrarSesion
+            cerrarSesion,
+            actualizarUsuario
         }}>
             {props.children}
         </AuthContext.Provider>

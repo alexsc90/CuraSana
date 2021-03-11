@@ -66,7 +66,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                             to="/contacto"
-                            class="border-transparent text-white hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            class="border-transparent text-white hover:border-gray-300 hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             Contacto
                             </Link>
                             
@@ -76,13 +76,8 @@ export default function Navbar() {
                         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                             <Link 
                             to='/iniciar'
-                            class="whitespace-nowrap text-base font-medium text-white hover:text-gray-900">
+                            class="whitespace-nowrap text-base font-medium text-white hover:text-gray-200">
                             Inicia sesión
-                            </Link>
-                            <Link 
-                            to='/pedido'
-                            class="ml-8 whitespace-nowrap text-base font-medium text-white hover:text-gray-900">
-                            Crear pedido
                             </Link>
                             <Link 
                             to='/registrarse'

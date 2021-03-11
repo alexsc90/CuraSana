@@ -4,7 +4,8 @@ import {
     OBTENER_USUARIO,
     LOGIN_EXITOSO,
     LOGIN_ERROR,
-    CERRAR_SESION
+    CERRAR_SESION,
+    ACTUALIZAR_USUARIO
 } from '../../types'
 
 export default (state, action) => {
@@ -18,6 +19,12 @@ export default (state, action) => {
                 ...state,
                 autenticado: true,
                 mensaje: null
+            }
+
+        case ACTUALIZAR_USUARIO:
+            return {
+                ...state,
+                usuario: action.payload
             }
 
         case CERRAR_SESION:

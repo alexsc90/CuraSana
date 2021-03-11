@@ -1,11 +1,16 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import axios from 'axios'
 import Logo from '../../images/logo(1).png'
 import Navbar from './Navbar'
+import Sidebar from './Sidebar'
+import AuthContext from '../../context/autenticacion/AuthContext'
 
 export default function Home() {
 
     const [products, setProducts] = useState([])
+
+    const ctxAuth = useContext(AuthContext)
+    const {autenticado} = ctxAuth
 
     useEffect(() => {
         const getProducts = async () => {
@@ -19,7 +24,9 @@ export default function Home() {
     return (
         <>
         <div>
+        {autenticado ? <Sidebar /> :
         <Navbar />
+        }
         </div>
         <div class="bg-white">
             <div class=" text-center mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">

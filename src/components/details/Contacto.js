@@ -20,10 +20,10 @@ export default function Contacto() {
                                 <dl class="mt-2 text-base text-gray-500">
                                     <div>
                                         <dt class="sr-only">
-                                            Email
+                                            Contacto
                                         </dt>
                                         <dd>
-                                            support@example.com
+                                            Demetrio Silva 
                                         </dd>
                                      </div>
                                     <div class="mt-1">
@@ -31,7 +31,7 @@ export default function Contacto() {
                                             Teléfono(s)
                                         </dt>
                                         <dd>
-                                            +1 (555) 123-4567
+                                            +52 (677) 377-2854
                                         </dd>
                                     </div>
                                 </dl>
@@ -43,10 +43,10 @@ export default function Contacto() {
                                 <dl class="mt-2 text-base text-gray-500">
                                     <div>
                                         <dt class="sr-only">
-                                            Email
+                                            Contacto
                                         </dt>
                                         <dd>
-                                            support@example.com
+                                            Karla Rochín
                                         </dd>
                                     </div>
                                     <div class="mt-1">
@@ -54,7 +54,7 @@ export default function Contacto() {
                                             Teléfono(s)
                                         </dt>
                                         <dd>
-                                            +1 (555) 123-4567
+                                            +52 (668) 832-9863
                                         </dd>
                                     </div>
                                 </dl>
@@ -66,10 +66,10 @@ export default function Contacto() {
                                 <dl class="mt-2 text-base text-gray-500">
                                     <div>
                                         <dt class="sr-only">
-                                            Email
+                                            Contacto
                                         </dt>
                                         <dd>
-                                            support@example.com
+                                            María Dolores Urías
                                         </dd>
                                     </div>
                                     <div class="mt-1">
@@ -77,7 +77,7 @@ export default function Contacto() {
                                             Teléfono(s)
                                         </dt>
                                         <dd>
-                                            +1 (555) 123-4567
+                                            +52 (673) 103-8327
                                         </dd>
                                     </div>
                                 </dl>
@@ -89,10 +89,10 @@ export default function Contacto() {
                                 <dl class="mt-2 text-base text-gray-500">
                                     <div>
                                         <dt class="sr-only">
-                                            Email
+                                            Contacto
                                         </dt>
                                         <dd>
-                                            support@example.com
+                                            Yoko Ono Parodi
                                         </dd>
                                     </div>
                                     <div class="mt-1">
@@ -100,7 +100,7 @@ export default function Contacto() {
                                             Teléfono(s)
                                         </dt>
                                         <dd>
-                                            +1 (555) 123-4567
+                                            +52 (687) 174-7738
                                         </dd>
                                     </div>
                                 </dl>

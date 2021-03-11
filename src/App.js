@@ -26,7 +26,7 @@ function App() {
             <Route exact path="/registrarse" component={Signup} />
             <Route exact path="/iniciar" component={Login} />
             <RutaPrivada exact path='/pedido' component={Orders} /> 
-            <RutaPrivada exact path='perfil' component={Profile} />
+            <RutaPrivada exact path='/perfil/:id' component={Profile} />
           </Switch>
         </Router>
       </AuthState>

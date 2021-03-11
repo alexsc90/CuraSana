@@ -1,12 +1,20 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import Logo from '../../images/logo(1).png'
+import {Link} from 'react-router-dom'
 
 import AuthContext from '../../context/autenticacion/AuthContext'
+import Navbar from '../layout/Navbar'
 
-export default function Login() {
+export default function Login(props) {
 
     const ctxAuth = useContext(AuthContext)
-    const {userLogin} = ctxAuth
+    const {usuario, iniciarSesion} = ctxAuth
+
+    useEffect(() => {
+        if(usuario) {
+        props.history.push('/')
+        }
+    }, [usuario, props.history])
 
 
     const [login, setLogin] = useState({
@@ -23,12 +31,14 @@ export default function Login() {
         })
     }
 
-    const sendLogin = () => {
-       userLogin(login)
+    const sendLogin = (e) => {
+        e.preventDefault()
+        iniciarSesion({email: login.email, password: login.password})
     }
 
     return (
-        
+        <>
+        <Navbar />
         <div class="min-h-screen flex flex-col justify-center bg-gray-50 py-12 sm:px-6 lg:px-8">
             <div class="sm:mx-auto sm:w-full sm:max-w-md">
                 
@@ -70,6 +80,7 @@ export default function Login() {
                     
 
                         <div>
+                        
                             <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Iniciar sesión
                              </button>
@@ -78,7 +89,7 @@ export default function Login() {
                     </form>
                 </div>
             </div>
-        
+        </>
 
 
     )
