@@ -10,7 +10,7 @@ export default function Signup(props) {
         name:"",
         email:"",
         password:"",
-        phoneNumber: 0
+        phoneNumber: null
     })
 
     const ctxAuth = useContext(AuthContext)
