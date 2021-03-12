@@ -9,11 +9,11 @@ export default function UpdateProfile(props) {
     const ctxAuth = useContext(AuthContext)
     const {usuario, actualizarUsuario} = ctxAuth
 
-     /* useEffect(() => {
+      useEffect(() => {
         if(usuario) {
         props.history.push(`/profile/${usuario._id}`)
         }
-    }, []) */
+    }, [])
  
     const [actualizar, setActualizar] = useState({
         name: `${usuario.name}`,

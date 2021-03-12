@@ -87,7 +87,7 @@ const AuthState = props => {
             
             dispatch({
                 type: LOGIN_EXITOSO,
-                payload: respuesta.data.profile
+                payload: respuesta.data
             })
 
             usuarioAutenticado()
@@ -118,7 +118,7 @@ const AuthState = props => {
         
         dispatch({
             type: ACTUALIZAR_USUARIO,
-            payload: respuesta.data.profile
+            payload: respuesta.data
         })
     }
 
