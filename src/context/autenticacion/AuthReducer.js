@@ -5,7 +5,8 @@ import {
     LOGIN_EXITOSO,
     LOGIN_ERROR,
     CERRAR_SESION,
-    ACTUALIZAR_USUARIO
+    ACTUALIZAR_USUARIO, 
+    ELIMINAR_USUARIO
 } from '../../types'
 
 export default (state, action) => {
@@ -27,6 +28,14 @@ export default (state, action) => {
                 usuario: action.payload
             }
 
+        case ELIMINAR_USUARIO:
+            localStorage.removeItem('token')
+            return {
+                ...state,
+                usuario: null,
+                autenticado: null
+            }
+ 
         case CERRAR_SESION:
         case LOGIN_ERROR:    
         case REGISTRO_ERROR:

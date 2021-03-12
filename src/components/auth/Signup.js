@@ -14,13 +14,13 @@ export default function Signup(props) {
     })
 
     const ctxAuth = useContext(AuthContext)
-    const {autenticado, registrarUsuario} = ctxAuth
+    const {usuario, registrarUsuario} = ctxAuth
 
      useEffect(() => {
-        if(autenticado) {
+        if(usuario) {
         props.history.push('/')
         }
-    }, [autenticado, props.history])
+    }, [usuario, props.history])
 
     const {name, email, password, phoneNumber} = infoSignup
 
@@ -32,10 +32,10 @@ export default function Signup(props) {
         
     }
 
-     const onSubmit = (e) => {
+     const onSubmit = async (e) => {
         e.preventDefault()
 
-        registrarUsuario({
+        await registrarUsuario({
             name,
             email, 
             password,
@@ -68,9 +68,10 @@ export default function Signup(props) {
                                 id="name" 
                                 name="name" 
                                 type="text" 
+                                value={name}
                                 autoComplete="name" 
                                 required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
-                                onChange={handleChange}    
+                                onChange={(e) => handleChange(e)}    
                                 />
                             </div>
                     </div>
@@ -80,10 +81,11 @@ export default function Signup(props) {
                         <input 
                         id="email" 
                         name="email" 
-                        type="email" 
+                        type="email"
+                        value={email} 
                         autoComplete="email" 
                         required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
-                        onChange={handleChange}    
+                        onChange={(e) => handleChange(e)}    
                         />
                         </div>
                     </div>
@@ -94,9 +96,10 @@ export default function Signup(props) {
                         id="password" 
                         name="password" 
                         type="password" 
+                        value={password}
                         autoComplete="email" 
                         required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        onChange={handleChange}    
+                        onChange={(e) => handleChange(e)}    
                         />
                         </div>
                     </div>
@@ -106,10 +109,11 @@ export default function Signup(props) {
                         <input 
                         id="phoneNumber" 
                         name="phoneNumber" 
-                        type="number" 
+                        type="number"
+                        value={phoneNumber} 
                         autoComplete="phoneNumber" 
                         required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
-                        onChange={handleChange}    
+                        onChange={(e) => handleChange(e)}    
                         />
                         </div>
                     </div>

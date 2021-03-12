@@ -1,6 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react'
 import Logo from '../../images/logo(1).png'
-import {Link} from 'react-router-dom'
 
 import AuthContext from '../../context/autenticacion/AuthContext'
 import Navbar from '../layout/Navbar'

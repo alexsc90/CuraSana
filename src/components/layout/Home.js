@@ -15,7 +15,7 @@ export default function Home() {
     useEffect(() => {
         const getProducts = async () => {
             const info = await axios.get("https://curasana.herokuapp.com/api/productos")
-            console.log(info)
+    
             setProducts(info.data.products)
         }
         getProducts()
@@ -43,10 +43,10 @@ export default function Home() {
                     <ul class="space-y-12 lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:gap-y-12 lg:space-y-0">
                     
                             {
-                                products.map((e) => {
+                                products.map((e, i) => {
                                     return (
                                         <>
-                                        <li>
+                                        <li key={i} >
                                         <div class="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:gap-8">
                                             <div class="h-0 aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
                                                 <img class="object-cover shadow-lg rounded-lg" src={e.imageURL} alt="" />

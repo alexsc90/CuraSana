@@ -2,6 +2,7 @@ import React, {useReducer} from 'react'
 import AuthContext from './AuthContext'
 import AuthReducer from './AuthReducer'
 
+
 import clienteAxios from '../../config/axios'
 import tokenAuth from '../../config/token'
 
@@ -12,7 +13,8 @@ import {
     LOGIN_EXITOSO,
     LOGIN_ERROR,
     CERRAR_SESION,
-    ACTUALIZAR_USUARIO
+    ACTUALIZAR_USUARIO,
+    ELIMINAR_USUARIO
 } from '../../types'
 
 
@@ -30,7 +32,7 @@ const AuthState = props => {
     
     // Registra un usuario
     const registrarUsuario = async datos => {
-        console.log('Hola')
+
         try{
             const respuesta = await clienteAxios.post('/api/signup', datos)
             dispatch({
@@ -113,14 +115,23 @@ const AuthState = props => {
         })
     }
 
-    const actualizarUsuario = async datos => {
-        const respuesta = await clienteAxios.put('/api/perfil/:id', datos)
+    const actualizarUsuario = async (datos, id) => {
+        const respuesta = await clienteAxios.put(`/api/profile/${id}`, datos)
         
         dispatch({
             type: ACTUALIZAR_USUARIO,
-            payload: respuesta.data
+            payload: respuesta.data.profile
         })
     }
+
+    const eliminarUsuario = async id => {
+        await clienteAxios.delete(`/api/profile/${id}`)
+        
+        dispatch({
+            type: ELIMINAR_USUARIO,
+            payload: id
+        })
+    } 
 
     return (
         <AuthContext.Provider value={{
@@ -133,7 +144,8 @@ const AuthState = props => {
             iniciarSesion,
             usuarioAutenticado,
             cerrarSesion,
-            actualizarUsuario
+            actualizarUsuario,
+            eliminarUsuario
         }}>
             {props.children}
         </AuthContext.Provider>
