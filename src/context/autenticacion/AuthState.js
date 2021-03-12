@@ -23,8 +23,8 @@ const AuthState = props => {
     const initialState = {
         token: localStorage.getItem('token'),
         autenticado: null,
-        usuario: null, // información del usuario
-        mensaje: null,  // relacionado con las alertas
+        usuario: null, 
+        mensaje: null,  
         cargando: true
     }
 
@@ -44,7 +44,7 @@ const AuthState = props => {
             usuarioAutenticado()
 
         } catch(error){
-            // console.log(error.response.data.msg)
+            
             const alerta = {
                 msg: error.response.data.msg,
                 categoria: "alerta-error"
