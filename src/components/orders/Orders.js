@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../layout/Sidebar'
 
-import Imagen from '../../images/imagen5.jpg'
+import Imagen from '../../images/imagen2.png'
 
 export default function Orders() {
     return (

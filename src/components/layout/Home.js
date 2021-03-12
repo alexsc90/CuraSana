@@ -4,6 +4,7 @@ import Logo from '../../images/logo(1).png'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import AuthContext from '../../context/autenticacion/AuthContext'
+import Imagen from '../../images/imagen1.png'
 
 export default function Home() {
 
@@ -83,6 +84,9 @@ export default function Home() {
 
                 </div>
             </div>
+            <footer class="bg-white">
+                <img src={Imagen} class="max-w-5xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8" />
+            </footer>
         </div>
         
         </>

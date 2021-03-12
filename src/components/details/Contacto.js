@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../layout/Navbar'
-import Imagen from '../../images/imagen1.png'
+import Imagen from '../../images/imagen2.png'
 
 export default function Contacto() {
     return (
