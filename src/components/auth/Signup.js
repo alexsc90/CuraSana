@@ -10,7 +10,8 @@ export default function Signup(props) {
         name:"",
         email:"",
         password:"",
-        phoneNumber: null
+        phoneNumber: null,
+        shippingAddress: ""
     })
 
     const ctxAuth = useContext(AuthContext)
@@ -22,7 +23,7 @@ export default function Signup(props) {
         }
     }, [usuario, props.history])
 
-    const {name, email, password, phoneNumber} = infoSignup
+    const {name, email, password, phoneNumber, shippingAddress} = infoSignup
 
     const handleChange = (e) => {
         setInfoSignup({
@@ -39,7 +40,8 @@ export default function Signup(props) {
             name,
             email, 
             password,
-            phoneNumber
+            phoneNumber,
+            shippingAddress
         })
 
      }
@@ -117,7 +119,20 @@ export default function Signup(props) {
                         />
                         </div>
                     </div>
-                    
+                    <div>
+                        <label for="shippingAddress" class="block text-sm font-medium text-gray-700">Dirección de envío</label>
+                        <div class="mt-1">
+                        <input 
+                        id="shippingAddress" 
+                        name="shippingAddress" 
+                        type="text"
+                        value={shippingAddress} 
+                        autoComplete="shippingAddress" 
+                        required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
+                        onChange={(e) => handleChange(e)}    
+                        />
+                        </div>
+                    </div>
 
                     <div>
                         <button 

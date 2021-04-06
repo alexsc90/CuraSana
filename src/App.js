@@ -14,21 +14,25 @@ import Contacto from './components/details/Contacto';
 import RutaPrivada from './components/rutas/RutaPrivada'
 import Orders from './components/orders/Orders';
 import Profile from './components/user/Profile';
+import CartState from './context/cart/CartState';
 
 function App() {
+  
   return (
     <>
       <AuthState>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/contacto" component={Contacto} />
-            <Route exact path="/registrarse" component={Signup} />
-            <Route exact path="/iniciar" component={Login} />
-            <RutaPrivada exact path='/pedido' component={Orders} /> 
-            <RutaPrivada exact path='/perfil/:id' component={Profile} />
-          </Switch>
-        </Router>
+        <CartState>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/contacto" component={Contacto} />
+              <Route exact path="/registrarse" component={Signup} />
+              <Route exact path="/iniciar" component={Login} />
+              <RutaPrivada exact path='/pedido' component={Orders} /> 
+              <RutaPrivada exact path='/perfil/:id' component={Profile} />
+            </Switch>
+          </Router>
+          </CartState>
       </AuthState>
     </>
   );

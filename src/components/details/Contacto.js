@@ -112,7 +112,7 @@ export default function Contacto() {
                 </div>
                 
                 <footer class="bg-white">
-                <img src={Imagen} class="max-w-5xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8" />
+                <img src={Imagen} class="max-w-5xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8" alt=""/>
                 </footer>
 
 
