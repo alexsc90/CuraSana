@@ -5,6 +5,7 @@ import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import AuthContext from '../../context/autenticacion/AuthContext'
 import Imagen from '../../images/imagen1.png'
+import CartContext from '../../context/cart/CartContext'
 
 export default function Home() {
 
@@ -21,6 +22,9 @@ export default function Home() {
         }
         getProducts()
     }, [])
+
+    const context = useContext(CartContext)
+    const {addProducts} = context
 
     return (
         <>
@@ -62,12 +66,19 @@ export default function Home() {
                                                         <p class="text-gray-500">Presentación: {e.measurement} </p> 
                                                         <p class="text-gray-500">Precio: $ {e.price}</p>
                                                     </div>
-                                                    {autenticado ? 
-                                                    <button type="button" class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-gray-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                        <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                                                        </svg>
-                                                    </button> : null
+                                                    {autenticado ?
+                                    
+                                                        <span class="relative z-0 inline-flex shadow-sm rounded-md">
+                                                            <button onClick={() => addProducts(e._id)}
+                                                                    type="submit" 
+                                                                    class="ml-4 inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                                +
+                                                            </button>
+                                                            <button type="button" class="ml-4 inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-indigo-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                                --
+                                                            </button> 
+                                                        </span>
+                                                        : null
                                                     }
                                                 </div>
                                             </div>
@@ -85,7 +96,7 @@ export default function Home() {
                 </div>
             </div>
             <footer class="bg-white">
-                <img src={Imagen} class="max-w-5xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8" />
+                <img src={Imagen} class="max-w-5xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8" alt="" />
             </footer>
         </div>
         

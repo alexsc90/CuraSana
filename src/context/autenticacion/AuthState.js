@@ -14,7 +14,8 @@ import {
     LOGIN_ERROR,
     CERRAR_SESION,
     ACTUALIZAR_USUARIO,
-    ELIMINAR_USUARIO
+    ELIMINAR_USUARIO, 
+    AGREGAR_PEDIDO
 } from '../../types'
 
 
@@ -133,6 +134,14 @@ const AuthState = props => {
         })
     } 
 
+    const agregarPedido = async (producto) => {
+        const order = await clienteAxios.put('/api/profile/edit', producto)
+        dispatch({
+            type: AGREGAR_PEDIDO,
+            payload: order.data.profile
+        })
+    }
+
     return (
         <AuthContext.Provider value={{
             token: state.token,
@@ -145,7 +154,8 @@ const AuthState = props => {
             usuarioAutenticado,
             cerrarSesion,
             actualizarUsuario,
-            eliminarUsuario
+            eliminarUsuario,
+            agregarPedido
         }}>
             {props.children}
         </AuthContext.Provider>
